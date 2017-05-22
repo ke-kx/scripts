@@ -1,0 +1,9 @@
+#!/bin/sh
+systemctl --user is-active xfluxd.service
+if [ $? -eq 0 ]; then
+    echo "disabling flux"
+    systemctl --user stop xfluxd.service
+else
+    echo "enabling flux"
+    systemctl --user start xfluxd.service
+fi

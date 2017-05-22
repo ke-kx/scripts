@@ -1,0 +1,5 @@
+#!/bin/sh
+# failed services
+systemctl --failed
+# high priority errors
+journalctl -p 3 -xb
