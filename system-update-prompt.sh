@@ -18,7 +18,7 @@ function _upgrade_system() {
       _update_system_update
     fi
   # otherwise use pacman
-  elif pacman_location="$(type -p yaourt)" && [ -n "$pacman_location" ]; then
+  elif pacman_location="$(type -p pacman)" && [ -n "$pacman_location" ]; then
     if sudo pacman -Syu; then
       # update the system update file
       _update_system_update
