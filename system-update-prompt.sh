@@ -13,7 +13,7 @@ function _update_system_update() {
 function _upgrade_system() {
   # upgrade via yaourt including the AUR if available
   if yaourt_location="$(type -p yaourt)" && [ -n "$yaourt_location" ]; then
-    if sudo yaourt -Syua; then
+    if yaourt -Syua; then
       # update the system update file
       _update_system_update
     fi
