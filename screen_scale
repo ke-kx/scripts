@@ -1,3 +1,11 @@
 #!/bin/bash
-#xrandr --output DP-2 --scale .5729x.5729
-xrandr --output DP-3 --auto --output DP-2 --auto --scale .5729x.5729 --right-of DP-3
+
+echo "Back (3) or Front (4) Display Port?"
+
+read DP
+if (( "$DP" != 3 )) && (( "$DP" != 4 )); then 
+	echo "Wrong input!"
+	exit 1
+fi
+
+xrandr --output "DP-$DP" --auto --output DP-2 --auto --scale .5729x.5729 --right-of "DP-$DP"
