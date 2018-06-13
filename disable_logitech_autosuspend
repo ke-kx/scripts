@@ -3,4 +3,4 @@ DEV_ID=046d:c52b
 DEVBUS=$(/usr/bin/lsusb -d $DEV_ID |cut -d " " -f2)
 DEVBUS=$(echo $DEVBUS |sed s/00//) 
 echo 'Writing to /sys/bus/usb/devices/'$DEVBUS'-2/power/control'
-echo 'on' > /sys/bus/usb/devices/$DEVBUS-2/power/control
+echo 'on' | sudo tee /sys/bus/usb/devices/$DEVBUS-2/power/control
