@@ -13,7 +13,7 @@ function _update_system_update() {
 function _upgrade_system() {
   # upgrade via yay including the AUR if available
   if yay_location="$(type -p yay)" && [ -n "$yay_location" ]; then
-    if yay -Syua; then
+    if yay -Syu; then
       # update the system update file
       _update_system_update
     fi
